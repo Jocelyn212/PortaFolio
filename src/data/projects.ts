@@ -17,7 +17,7 @@ export const featuredProjects: Project[] = [
   },
   {
     title: 'JCTechStudio Tools',
-    description: 'Herramienta de auditoría web basada en Lighthouse. Analiza móvil y desktop, organiza métricas de calidad y genera informes con apoyo de IA.',
+    description: 'Conjunto de herramientas con IA para revisar textos, redactar correos, preparar contenido para redes sociales y traducir. También incluye chat, chatbot y auditorías web con Lighthouse.',
     image: 'https://res.cloudinary.com/pruebaweb/image/upload/v1789880392/Imagenes%20para%20porfolio/tools.png',
     url: 'https://tools.jctechstudio.es',
     stack: ['Astro', 'React', 'Lighthouse', 'IA'],
@@ -28,17 +28,17 @@ export const featuredProjects: Project[] = [
 export const clientProjects: Project[] = [
   {
     title: 'Rodar y Rodar',
-    description: 'Web oficial de la productora audiovisual Rodar y Rodar. Organiza su catálogo, servicios e información corporativa y está desplegada en producción.',
+    description: 'Web de la productora con un panel privado para incorporar películas y series, gestionar sus textos en tres idiomas y añadir tráileres de YouTube. El contenido publicado desde el panel aparece directamente en la web.',
     image: 'https://res.cloudinary.com/pruebaweb/image/upload/v1789880185/Imagenes%20para%20porfolio/rodaryrodar.png',
     url: 'https://www.rodaryrodar.com',
     stack: ['Astro', 'Tailwind', 'Producción'],
   },
   {
     title: 'Òrbita Sallent',
-    description: 'Web oficial de Òrbita Sallent. El proyecto cubre el desarrollo de la interfaz y su despliegue en producción.',
+    description: 'Plataforma web para un club deportivo, con un panel privado desde el que se gestionan jugadores, pagos, partidos, rankings, temporadas y eventos. Los cambios realizados en el panel actualizan la información de la web pública.',
     image: 'https://res.cloudinary.com/pruebaweb/image/upload/v1789880199/Imagenes%20para%20porfolio/Orbitasallent.png',
     url: 'https://orbitasallent.cat',
-    stack: ['Astro', 'Despliegue'],
+    stack: ['Astro', 'Despliegue', 'MongoDB Atlas'],
   },
   {
     title: 'Obres i Serveis Mig Mon',

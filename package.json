@@ -1,7 +1,8 @@
 {
-  "name": "",
+  "name": "jocelyn-castro-portfolio",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@10.26.2",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -16,7 +17,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "astro": "^6.0.8",
+    "astro": "^7.3.3",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tailwindcss": "^4.3.3"

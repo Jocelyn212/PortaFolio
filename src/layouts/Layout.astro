@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import socialImage from '../assets/hero-workspace.png';
 
 interface Props {
 	title?: string;
@@ -10,6 +11,8 @@ const {
 	title = 'Jocelyn Castro — Full-Stack Developer',
 	description = 'Portfolio de Jocelyn Castro, desarrolladora Full Stack especializada en aplicaciones web, automatización, IA e infraestructura.',
 } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const socialImageUrl = new URL(socialImage.src, Astro.site);
 ---
 
 <!doctype html>
@@ -18,13 +21,23 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="canonical" href={canonicalUrl} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#050b12" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:site_name" content="Jocelyn Castro" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:image" content={socialImageUrl} />
+		<meta property="og:image:alt" content="Portfolio profesional de Jocelyn Castro" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageUrl} />
+		<meta name="twitter:image:alt" content="Portfolio profesional de Jocelyn Castro" />
 		<title>{title}</title>
 	</head>
 	<body>

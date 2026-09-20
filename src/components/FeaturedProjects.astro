@@ -6,7 +6,7 @@ const allProjects = [...featuredProjects, ...clientProjects];
 
 <section id="proyectos" class="scroll-mt-16 border-b border-white/8 py-9">
   <div class="mx-auto max-w-375 px-5 sm:px-8 lg:px-12">
-    <div class="panel-heading mb-4">
+    <div class="panel-heading mb-4 flex-wrap">
       <LineIcon name="folder" class="size-4" /><h2>
         Proyectos destacados
       </h2><span
@@ -64,12 +64,12 @@ const allProjects = [...featuredProjects, ...clientProjects];
                     </span>
                   ))}
                 </div>
-                <div class="mt-auto flex items-center gap-2 pt-3">
+                <div class="mt-auto flex flex-wrap items-center gap-2 pt-3">
                   {project.url ? (
                     <a
                       href={project.url}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       class="inline-flex rounded border border-cyan-400/40 px-2 py-1.5 font-mono text-[9px] font-bold uppercase tracking-wider text-cyan-300 hover:bg-cyan-400/8 focus-visible:outline-2 focus-visible:outline-cyan-400"
                     >
                       Visitar web ↗
@@ -83,7 +83,7 @@ const allProjects = [...featuredProjects, ...clientProjects];
                     type="button"
                     data-project-image={project.image}
                     data-project-title={project.title}
-                    class="font-mono text-[9px] uppercase text-slate-500 hover:text-cyan-300"
+                    class="rounded font-mono text-[9px] uppercase text-slate-500 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
                   >
                     Ver captura
                   </button>
@@ -99,15 +99,16 @@ const allProjects = [...featuredProjects, ...clientProjects];
 
 <dialog
   data-image-dialog
+  aria-labelledby="project-dialog-title"
   class="m-auto max-h-[94vh] w-[min(96vw,1500px)] max-w-none overflow-hidden rounded-lg border border-cyan-400/25 bg-[#030a11] p-0 text-white shadow-2xl backdrop:bg-black/85 backdrop:backdrop-blur-sm"
 >
   <div
     class="flex items-center justify-between border-b border-white/10 px-4 py-3"
   >
-    <p data-dialog-title class="text-sm font-semibold"></p><button
+    <p id="project-dialog-title" data-dialog-title class="text-sm font-semibold"></p><button
       data-dialog-close
       type="button"
-      class="grid size-8 place-items-center rounded border border-white/10 text-lg text-slate-300 hover:border-cyan-400/30 hover:text-white"
+      class="grid size-8 place-items-center rounded border border-white/10 text-lg text-slate-300 hover:border-cyan-400/30 hover:text-white focus-visible:outline-2 focus-visible:outline-cyan-400"
       aria-label="Cerrar imagen">×</button>
   </div>
   <div class="max-h-[calc(94vh-57px)] overflow-auto bg-black/30 p-2 sm:p-4">

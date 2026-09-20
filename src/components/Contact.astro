@@ -35,7 +35,7 @@ const contactLinks = [
           <a
             href={contact.href}
             target={contact.href.startsWith("http") ? "_blank" : undefined}
-            rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
+            rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
             class="flex min-w-0 items-center gap-3 bg-[#07111b] px-4 py-3 hover:bg-[#0a1722] focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-cyan-400"
           >
             <>

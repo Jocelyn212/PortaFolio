@@ -52,7 +52,7 @@ const contacts = [
           JOCELYN <span class="text-cyan-300">CASTRO</span>
         </h1>
         <p
-          class="mt-2 text-sm font-normal tracking-[.34em] text-slate-100 uppercase sm:text-base"
+          class="mt-2 text-xs font-normal tracking-[.2em] text-slate-100 uppercase sm:text-base sm:tracking-[.34em]"
         >
           Full-Stack Developer
         </p>
@@ -92,7 +92,7 @@ const contacts = [
           <a
             href={contact.href}
             target={contact.href.startsWith("http") ? "_blank" : undefined}
-            rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
+            rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
             class="flex min-w-0 items-center gap-3 border-r border-b border-white/8 px-3 py-3 hover:bg-cyan-400/[.035] focus-visible:outline-2 focus-visible:outline-cyan-400 lg:border-b-0"
           >
             <>

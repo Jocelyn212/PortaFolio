@@ -24,12 +24,6 @@
 }
 
 @layer components {
-  .section-kicker {
-    @apply mb-3 font-mono text-xs font-semibold uppercase tracking-[.2em] text-cyan-300;
-  }
-  .section-title {
-    @apply text-2xl font-semibold tracking-[-.025em] text-white sm:text-3xl;
-  }
   .panel-heading {
     @apply flex items-center gap-2 border-b border-white/10 pb-2 text-cyan-300;
   }

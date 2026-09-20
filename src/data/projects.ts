@@ -10,7 +10,7 @@ export type Project = {
 export const featuredProjects: Project[] = [
   {
     title: 'LaboratorioJCTech',
-    description: 'Plataforma Full Stack privada que centraliza gestión, análisis e infraestructura. Automatiza procesos e integra herramientas de inteligencia artificial.',
+    description: 'Plataforma Full Stack privada que centraliza gestión, análisis e infraestructura. Reúne herramientas de gestión e integra funciones de inteligencia artificial.',
     image: 'https://res.cloudinary.com/pruebaweb/image/upload/v1789878905/Imagenes%20para%20porfolio/Laboratorio.png',
     stack: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Node.js', 'MongoDB'],
     status: 'Privado · En desarrollo',

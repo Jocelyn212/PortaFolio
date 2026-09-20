@@ -1,0 +1,103 @@
+---
+const navigation = [
+  { label: "Perfil", href: "#sobre-mi" },
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Trayectoria", href: "#trayectoria" },
+  { label: "Contacto", href: "#contacto" },
+];
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-cyan-400/10 bg-[#030a11]/90 backdrop-blur-xl"
+>
+  <div
+    class="mx-auto flex h-14 max-w-375 items-center justify-end px-5 sm:px-8 lg:px-12"
+  >
+    <nav aria-label="Navegación principal" class="hidden md:block">
+      <ul
+        class="flex items-center gap-1 text-xs uppercase tracking-wider text-slate-400"
+      >
+        {
+          navigation.map((item) => (
+            <li>
+              <a
+                data-nav-link
+                class="block rounded px-3 py-2 transition hover:bg-white/5 hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-cyan-400"
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <button
+      data-menu-button
+      class="grid size-9 place-items-center rounded border border-white/10 text-cyan-300 md:hidden"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Abrir navegación"
+      ><span class="font-mono text-lg" aria-hidden="true">≡</span></button
+    >
+  </div>
+  <nav
+    id="mobile-menu"
+    data-mobile-menu
+    aria-label="Navegación móvil"
+    class="hidden border-t border-white/8 bg-[#050c14] px-5 py-3 md:hidden"
+  >
+    <ul class="grid grid-cols-2 gap-2">
+      {
+        navigation.map((item) => (
+          <li>
+            <a
+              data-nav-link
+              class="block rounded border border-white/8 px-3 py-2 text-xs uppercase tracking-wider text-slate-300"
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+<script>
+  const menuButton =
+    document.querySelector<HTMLButtonElement>("[data-menu-button]");
+  const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+  const navigationLinks =
+    document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]");
+  const closeMobileMenu = () => {
+    mobileMenu?.classList.add("hidden");
+    menuButton?.setAttribute("aria-expanded", "false");
+  };
+  menuButton?.addEventListener("click", () => {
+    const willOpen = mobileMenu?.classList.contains("hidden") ?? false;
+    mobileMenu?.classList.toggle("hidden");
+    menuButton.setAttribute("aria-expanded", String(willOpen));
+  });
+  navigationLinks.forEach((link) =>
+    link.addEventListener("click", closeMobileMenu),
+  );
+  const observedSections = [...navigationLinks]
+    .map((link) => document.querySelector(link.hash))
+    .filter((section): section is Element => section !== null);
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleSection = entries.find((entry) => entry.isIntersecting);
+      if (!visibleSection) return;
+      navigationLinks.forEach((link) => {
+        const isActive = link.hash === `#${visibleSection.target.id}`;
+        link.classList.toggle("text-cyan-300", isActive);
+        if (isActive) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    },
+    { rootMargin: "-20% 0px -70% 0px" },
+  );
+  observedSections.forEach((section) => sectionObserver.observe(section));
+</script>

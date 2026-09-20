@@ -1,0 +1,119 @@
+---
+import heroWorkspace from "../assets/hero-workspace.png";
+import LineIcon from "./LineIcon.astro";
+const contacts = [
+  {
+    icon: "globe",
+    label: "JCTechStudio",
+    value: "jctechstudio.es",
+    href: "https://jctechstudio.es",
+  },
+  {
+    icon: "linkedin",
+    label: "LinkedIn",
+    value: "jocelyn-castro-flores",
+    href: "https://www.linkedin.com/in/jocelyn-castro-flores",
+  },
+  {
+    icon: "mail",
+    label: "Email",
+    value: "jocelyn.cf@gmail.com",
+    href: "mailto:jocelyn.cf@gmail.com",
+  },
+  {
+    icon: "github",
+    label: "GitHub",
+    value: "Jocelyn212",
+    href: "https://github.com/Jocelyn212",
+  },
+] as const;
+---
+
+<section id="inicio" class="relative border-b border-white/10 pt-14">
+  <div class="relative isolate overflow-hidden">
+    <img
+      src={heroWorkspace.src}
+      alt="Espacio de trabajo tecnológico en tonos azul oscuro"
+      width={heroWorkspace.width}
+      height={heroWorkspace.height}
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+    />
+    <div
+      class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(2,8,14,.52),rgba(2,9,15,.15)_45%,rgba(2,8,14,.55)),linear-gradient(0deg,rgba(2,8,14,.5),transparent_60%)]"
+    >
+    </div>
+    <div
+      class="mx-auto grid min-h-62.5 max-w-375 items-center gap-7 px-5 py-7 sm:px-8 lg:grid-cols-[1fr_230px] lg:px-12"
+    >
+      <div class="mx-auto w-full max-w-2xl lg:mx-0 lg:pl-[22%]">
+        <h1 class="text-3xl font-light tracking-[.07em] text-white sm:text-5xl">
+          JOCELYN <span class="text-cyan-300">CASTRO</span>
+        </h1>
+        <p
+          class="mt-2 text-sm font-normal tracking-[.34em] text-slate-100 uppercase sm:text-base"
+        >
+          Full-Stack Developer
+        </p>
+        <p class="mt-3 text-sm tracking-wide text-slate-300">
+          Desarrollo web · Aplicaciones · Soluciones digitales
+        </p>
+        <p class="mt-4 font-mono text-[10px] tracking-[.18em] text-cyan-300">
+          ASTRO · REACT · NODE.JS · MONGODB · IA · CLOUD
+        </p>
+      </div>
+      <div
+        class="hidden border-l border-cyan-400/25 bg-[#020a12]/70 px-6 py-5 lg:block"
+        aria-label="Áreas de trabajo"
+      >
+        {
+          [
+            "Crear",
+            "Desarrollar",
+            "Automatizar",
+            "Desplegar",
+            "Seguir aprendiendo",
+          ].map((item) => (
+            <p class="mb-2.5 font-mono text-[10px] uppercase tracking-[.24em] text-cyan-300">
+              {item}
+            </p>
+          ))
+        }<div class="mt-4 h-1 w-10 bg-cyan-300"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-[#050c14]">
+    <div
+      class="mx-auto grid max-w-375 grid-cols-2 px-5 sm:px-8 lg:grid-cols-4 lg:px-12"
+    >
+      {
+        contacts.map((contact) => (
+          <a
+            href={contact.href}
+            target={contact.href.startsWith("http") ? "_blank" : undefined}
+            rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
+            class="flex min-w-0 items-center gap-3 border-r border-b border-white/8 px-3 py-3 hover:bg-cyan-400/[.035] focus-visible:outline-2 focus-visible:outline-cyan-400 lg:border-b-0"
+          >
+            <>
+              <LineIcon
+                name={contact.icon}
+                class="size-6 shrink-0 text-cyan-300"
+              />
+              <span class="min-w-0">
+                <>
+                  <strong class="block text-[11px] uppercase tracking-wide text-white">
+                    {contact.label}
+                  </strong>
+                  <span class="block truncate text-[10px] text-slate-500">
+                    {contact.value}
+                  </span>
+                </>
+              </span>
+            </>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

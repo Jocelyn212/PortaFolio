@@ -1,0 +1,55 @@
+---
+interface Props {
+  name:
+    | "globe"
+    | "linkedin"
+    | "mail"
+    | "github"
+    | "code"
+    | "layers"
+    | "bot"
+    | "cloud"
+    | "briefcase"
+    | "graduation"
+    | "folder"
+    | "contact"
+    | "zoom";
+  class?: string;
+}
+const { name, class: className = "size-5" } = Astro.props;
+const paths = {
+  globe:
+    '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18"/>',
+  linkedin:
+    '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-5m0 2c1-3 5-2 5 1v2"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  github:
+    '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.2-.4 6.5-1.6 6.5-7A5.4 5.4 0 0 0 19 3.7 5 5 0 0 0 18.9 0S17.7-.4 15 1.5a13.4 13.4 0 0 0-7 0C5.3-.4 4.1 0 4.1 0A5 5 0 0 0 4 3.7a5.4 5.4 0 0 0-1.5 3.8c0 5.4 3.3 6.6 6.5 7A4.8 4.8 0 0 0 8 18v4m-3-3c-3 .9-3-1.5-4-2"/>',
+  code: '<path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/>',
+  layers:
+    '<path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/>',
+  bot: '<rect x="4" y="6" width="16" height="14" rx="2"/><path d="M9 2h6M12 2v4M8 12h.01M16 12h.01M9 16h6"/>',
+  cloud:
+    '<path d="M17.5 19H7a5 5 0 1 1 1-9.9A7 7 0 0 1 21 12.5 3.5 3.5 0 0 1 17.5 19Z"/>',
+  briefcase:
+    '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2"/>',
+  graduation:
+    '<path d="m2 10 10-5 10 5-10 5L2 10Z"/><path d="M6 12v5c3 2 9 2 12 0v-5M22 10v6"/>',
+  folder: '<path d="M3 5h6l2 2h10v12H3V5Z"/>',
+  contact:
+    '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  zoom: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M11 8v6M8 11h6"/>',
+};
+---
+
+<svg
+  class={className}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  set:html={paths[name]}
+/>

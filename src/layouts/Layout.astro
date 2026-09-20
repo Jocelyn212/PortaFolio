@@ -1,27 +1,34 @@
----                             
-import '../styles/global.css'   
----   
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Jocelyn Castro — Full-Stack Developer',
+	description = 'Portfolio de Jocelyn Castro, desarrolladora Full Stack especializada en aplicaciones web, automatización, IA e infraestructura.',
+} = Astro.props;
+---
 
 <!doctype html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#050b12" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<title>{title}</title>
 	</head>
 	<body>
+		<a href="#contenido" class="sr-only z-100 bg-cyan-300 p-3 text-slate-950 focus:not-sr-only focus:fixed focus:left-3 focus:top-3">Saltar al contenido</a>
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

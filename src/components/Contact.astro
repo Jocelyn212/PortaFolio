@@ -1,0 +1,62 @@
+---
+import LineIcon from "./LineIcon.astro";
+const contactLinks = [
+  {
+    icon: "linkedin",
+    label: "LinkedIn",
+    value: "jocelyn-castro-flores",
+    href: "https://www.linkedin.com/in/jocelyn-castro-flores",
+  },
+  {
+    icon: "mail",
+    label: "Email",
+    value: "jocelyn.cf@gmail.com",
+    href: "mailto:jocelyn.cf@gmail.com",
+  },
+  {
+    icon: "github",
+    label: "GitHub",
+    value: "Jocelyn212",
+    href: "https://github.com/Jocelyn212",
+  },
+] as const;
+---
+
+<section id="contacto" class="scroll-mt-16 border-b border-white/8 py-7">
+  <div class="mx-auto max-w-375 px-5 sm:px-8 lg:px-12">
+    <div class="panel-heading mb-4">
+      <LineIcon name="contact" class="size-4" /><h2>Contacto</h2>
+    </div>
+    <div
+      class="grid gap-px overflow-hidden rounded border border-white/8 bg-white/8 sm:grid-cols-3"
+    >
+      {
+        contactLinks.map((contact) => (
+          <a
+            href={contact.href}
+            target={contact.href.startsWith("http") ? "_blank" : undefined}
+            rel={contact.href.startsWith("http") ? "noreferrer" : undefined}
+            class="flex min-w-0 items-center gap-3 bg-[#07111b] px-4 py-3 hover:bg-[#0a1722] focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-cyan-400"
+          >
+            <>
+              <LineIcon
+                name={contact.icon}
+                class="size-5 shrink-0 text-cyan-300"
+              />
+              <span class="min-w-0">
+                <>
+                  <strong class="block text-[10px] uppercase tracking-wide text-white">
+                    {contact.label}
+                  </strong>
+                  <span class="block truncate text-[10px] text-slate-500">
+                    {contact.value}
+                  </span>
+                </>
+              </span>
+            </>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
